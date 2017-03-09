@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+	<title>Sarika Ameerichetty</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css" rel="stylesheet">
+
+</head>
+<body class="landing">
+<div id="page-wrapper">
+
+	<!-- Header -->
+	<header id="header">
+		<h1 id="logo"><a href="index.html">Sarika Ameerichetty</a></h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li>
+					<a href="#">Angular</a>
+					<ul>
+						<li><a href="whyangular.html">Why AngularJS</a></li>
+						<li><a href="bestpractices.html">Best Practices</a></li>
+						<li><a href="angularboilerplate.html">AngularJS Boilerplates</a></li>
+						<li>
+							<a href="#">Learn Angular</a>
+							<ul>
+								<li><a href="controller.html">Controller</a></li>
+								<li><a href="services.html">Services</a></li>
+								<li><a href="directive.html">Directives</a></li>
+								<li><a href="filter.html">Filter</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Best Practices</h2>
+							<p>Good Practices to Build Your AngularJS Application</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<div class="entry-content" itemprop="text"><p>We spend a lot of time writing code. In the early phases of a project, the directory structure doesn’t matter too much and many people tend to ignore best practices. In the short term, this allows the developer to code rapidly, but in the long term will affect code maintainability. AngularJS is still relatively new and developers are still figuring out what works and doesn’t. There are many great ways to structure an app and we’ll borrow some principles from existing mature frameworks but also do some things that are specific to Angular.</p>
+									<p>In this article, I will cover best practices regarding directory structures for both small and large AngularJS apps. This may be a hot button issue with some developers and while there is no “perfect” way to structure an app, I will be writing from experience and lessons learned from projects I’ve worked on.</p>
+									<p>&nbsp;</p>
+									<h2 id="standard-structure">Standard Structure</h2>
+									<p>First of all, let’s go over what not to do. Many AngularJS tutorials show an app structure that resembles the code below:</p>
+									<p>app/<br>
+										—– controllers/<br>
+										———- mainController.js<br>
+										———- otherController.js<br>
+										—– directives/<br>
+										———- mainDirective.js<br>
+										———- otherDirective.js<br>
+										—– services/<br>
+										———- userService.js<br>
+										———- itemService.js<br>
+										—– js/<br>
+										———- bootstrap.js<br>
+										———- jquery.js<br>
+										—– app.js<br>
+										views/<br>
+										—– mainView.html<br>
+										—– otherView.html<br>
+										—– index.html</p>
+									<p>&nbsp;</p>
+									<p>This is a very typical app structure that I see. On the surface, it seems to make a lot of sense and is very similar to a lot of MVC frameworks. We have a <strong>separation of concerns</strong>, <strong>controllers have their own folder</strong>,<strong>views have their own folder</strong>, <strong>external libraries have their own folder</strong>, etc.</p>
+									<p>The main problem with this directory structure is not apparent when you are working with only a handful of views and controllers. In fact, it is preferable to follow this approach when writing a tutorial for example or for smaller application. This structure makes it very easy for the reader to visualize and conceptualize the concepts you are covering.</p>
+									<p>This approach falls apart, however, when you start adding additional functionality to the app. <strong>Once you have more than 10 controllers, views and directives, you are going to have to do a lot of scrolling in your directory tree to find the required files.</strong></p>
+									<p>For example, say you are building a blog with Angular. You decide that you would like to add the author information to the bottom of each article. Well now, you have to find the blog directive, controller, potentially the service and finally the view before you can even look at the whole picture and start making edits.</p>
+									<p>Say a few months down the line, you are adding additional features to your blog and want to rename a particular feature, again it’s a hunt throughout the directory structure to find the affected files, edit them, make sure they are all in sync, and then make the changes.</p>
+									<p>&nbsp;</p>
+									<!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                                                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                                                xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+                                            <rdf:Description rdf:about="http://www.analista3.info/2016/08/17/angularjs-best-practices-directory-structure/"
+                                        dc:identifier="http://www.analista3.info/2016/08/17/angularjs-best-practices-directory-structure/"
+                                        dc:title="AngularJS Best Practices: Directory Structure"
+                                        trackback:ping="http://www.analista3.info/2016/08/17/angularjs-best-practices-directory-structure/trackback/" />
+                                    </rdf:RDF>-->
+								</div>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Designed & Developed by Sarika Ameerichetty</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

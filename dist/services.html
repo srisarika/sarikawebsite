@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+	<title>Sarika Ameerichetty</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css" rel="stylesheet">
+
+</head>
+<body class="landing">
+<div id="page-wrapper">
+
+	<!-- Header -->
+	<header id="header">
+		<h1 id="logo"><a href="index.html">Sarika Ameerichetty</a></h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li>
+					<a href="#">Angular</a>
+					<ul>
+						<li><a href="whyangular.html">Why AngularJS</a></li>
+						<li><a href="bestpractices.html">Best Practices</a></li>
+						<li><a href="angularboilerplate.html">AngularJS Boilerplates</a></li>
+						<li>
+							<a href="#">Learn Angular</a>
+							<ul>
+								<li><a href="controller.html">Controller</a></li>
+								<li><a href="services.html">Services</a></li>
+								<li><a href="directive.html">Directives</a></li>
+								<li><a href="filter.html">Filter</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Services</h2>
+							<p>Factory vs Service vs Provider</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+
+								<div class="entry-content">
+									<p>To try to get my head around the differences of the <a title="Understanding Angular Services" href="http://docs.angularjs.org/guide/dev_guide.services.understanding_services" target="_blank">factory’s, services and provider in AngularJS</a>. This can be all very similar on first sight. However there are some differences between the three of them. I’ll try to explain how they work and which to choose when.<span id="more-8121"></span></p>
+									<h2>Factory</h2>
+									<p>A factory is probably the used and the most common used of the three.</p>
+									<p><strong>Syntax</strong>: <code><span style="font-size: small;">module.factory('factoryName', function);</span></code></p>
+									<p><strong>Result</strong>: When declaring factoryName as an injectable argument you will be provided the <strong>value that is returned by invoking the function reference</strong> passed to <code>module.factory</code>. In other words, on every call the arguments passed in again.</p>
+									<p><strong>Usage</strong>: Could be useful for returning a <strong>‘class’</strong> function that can then be new’ed to create instances.</p>
+									<h2>Service</h2>
+									<p>A service is quite similar to a factory. There are some small differences however.</p>
+									<p><strong>Syntax</strong>: <span style="font-size: small; font-family: consolas;">module.service(‘serviceName’, function);</span></p>
+									<p><strong>Result</strong>: When declaring serviceName as an injectable argument you will be provided with the instance of a function passed to module.service. This differs from the factory</p>
+									<p><strong>Usage</strong>: Could be useful for sharing utility functions that are useful to invoke by simply appending () to the injected function reference. Could also be run with injectedArg.call(this) or similar.</p>
+									<h2>Provider</h2>
+									<p><a href="http://docs.angularjs.org/api/AUTO.$provide#methods_provider">Provider</a> is the most configurable of all three.&nbsp; All other providers are derived from it. It enables us define how the service will be provided even before the injection system is in place. This is achieved with <b>configure</b> call where we register work during the modules configuration phase.</p>
+									<p><strong>Syntax:</strong> Syntax: module.provider( ‘providerName’, function );</p>
+									<p><strong>Result:</strong> When declaring providerName as an injectable argument <b>you will be provided the value that is returned by invoking the $get method of the function reference</b> passed to module.provider.</p>
+									<p><strong>Usage:</strong> Could be useful for returning a ‘class’ function that can then be new’ed to create instances but that requires some sort of configuration before being injected. Perhaps useful for classes that are reusable across projects.</p>
+									<h2>What to choose</h2>
+									<p>As usual, it depends. The factory has the <a title="Revealing Module pattern" href="http://blog.pluralsight.com/revealing-module-pattern-structuring-javascript-code-part-iii" target="_blank">Revealing Module pattern</a> which gives the possibility to hide private variables. This can be very useful. However if you don’t have them and the injection of the service isn’t a problem for you, the service can be useful for you as well. The provider is the last in line to use. In most cases you won’t use this one. Use this only when you need the config part. This can be very handy when developing services that were shared of applications.</p>
+									<p>Hope this clarifies a little for you.</p>
+								</div>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Designed & Developed by Sarika Ameerichetty</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
