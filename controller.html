@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+	<title>Sarika Ameerichetty</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/devicons/1.8.0/css/devicons.min.css" rel="stylesheet">
+
+</head>
+<body class="landing">
+<div id="page-wrapper">
+
+	<!-- Header -->
+	<header id="header">
+		<h1 id="logo"><a href="index.html">Sarika Ameerichetty</a></h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li>
+					<a href="#">Angular</a>
+					<ul>
+						<li><a href="whyangular.html">Why AngularJS</a></li>
+						<li><a href="bestpractices.html">Best Practices</a></li>
+						<li><a href="angularboilerplate.html">AngularJS Boilerplates</a></li>
+						<li>
+							<a href="#">Learn Angular</a>
+							<ul>
+								<li><a href="controller.html">Controller</a></li>
+								<li><a href="services.html">Services</a></li>
+								<li><a href="directive.html">Directives</a></li>
+								<li><a href="filter.html">Filter</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Controllers</h2>
+							<p>Sharing data between the controllers</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<div class="entry-content">
+
+									<p>There are many different ways to communicate between different Angular controllers in the same app. I will show what’s the best way in my opinion for now. Communicate with events. The alternative way is by using a inherited scope.<span id="more-7941"></span></p>
+									<h2>Inherited scopes</h2>
+									<p>The simplest way for controllers to communicate is through the use of scope. Each time a controller is instantiated within another controller, that controller (the child) inherits the scope from the parent controller. This gives the child access to all the functions and variables attached to the parent scope. However, it’s important to know that because of Javascript’s prototype-based inheritance, primitive variables (such as strings, integers, and booleans) may be affected in unexpected ways.</p>
+									<h2>Event driven communication</h2>
+									<p>While inherited scope works well in situations where data needs to be shared between parent and child controllers, it doesn’t deal with communication between siblings. For that, we can used event-based communication with the Angular services <a title="$on" href="http://docs.angularjs.org/api/ng.$rootScope.Scope#methods_$on" target="_blank">$on</a>, <a title="$emit" href="http://docs.angularjs.org/api/ng.$rootScope.Scope#methods_$emit" target="_blank">$emit</a>, and $broadcast.</p>
+									<h3>$Broadcast</h3>
+									<p>Dispatches an event name downwards to all child scopes (and their children) notifying the registered ng.$rootScope.Scope#methods_$on listeners. The event life cycle starts at the scope on which $broadcast was called. All listeners listening for name event on this scope get notified. Afterwards, the event propagates to all direct and indirect scopes of the current scope and calls all registered listeners along the way. The event cannot be canceled.</p>
+									<h3>$Emit</h3>
+									<p>Dispatches an event name upwards through the scope hierarchy notifying the registered ng.$rootScope.Scope#methods_$on listeners. The event life cycle starts at the scope on which $emit was called. All listeners listening for name event on this scope get notified. Afterwards, the event traverses upwards toward the root scope and calls all registered listeners along the way. The event will stop propagating if one of the listeners cancels it.</p>
+									<h3>$On</h3>
+									<p>Listens on events of a given type. If a broadcast or emit is done, the on will catch both. The event listener function format is: function(event, args…).</p>
+									<h2>Solution</h2>
+									<p>Working with this event in only controllers still needs a parent controller. Because in that way you will stack the scopes of the controllers and the broadcast and emit will be able to communicate with the on. Alternative to that is the use of the $rootscope. The $rootscope is the highest possible scope in Angular. Have said that, $rootscope.$broadcast will always hit on all controllers wherever it is located. However the use of $rootscope should be minimized at all costs in my opinion. Or at least isolated as much as possible. Therefor I’ll never use $rootscope in my controllers. For this solution I produced a service that I’ll include in my controllers. The service will handle the complete $rootscope.$broadcast and $scope.$on combination. In the controller we only fire the event of service and in the subscribed controller we will handle the outcome.</p>
+									<h2>Example code</h2>
+									<p>Here a simplified example of the service. If you don’t see the Fiddle, hit this <a title="Angular Communication between Controllers" href="http://jsfiddle.net/TheRoks/8j34n/2" target="_blank">link</a>. <iframe src="http://jsfiddle.net/TheRoks/8j34n/2/embedded/js%2Cresources%2Chtml%2Cresult/" height="300" width="100%" allowfullscreen="allowfullscreen" frameborder="0"></iframe></p>
+										</div>
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Designed & Developed by Sarika Ameerichetty</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
